@@ -1,0 +1,23 @@
+# Data (too large for git — place locally as data/)
+data/
+
+# Training outputs
+runs/
+
+# Figures and slides
+slides/*.png
+slides/*.pptx
+slides/make_pptx*.py
+slides/실험결과_정리.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
