@@ -1,0 +1,5 @@
+name,test_clean_wer,test_other_wer
+pretrained,1.0009,1.0019
+fr6_s1200,0.2202,0.3034
+fr6_s1800,0.2335,0.3127
+fr6_s2400,0.2122,0.2998

@@ -1,0 +1,14 @@
+name,baseline_wer,final_wer,elapsed_min,phase
+lr_1e4,1.0203,0.2822,9.5,lr_sweep
+lr_3e4,1.0,0.2042,9.5,lr_sweep
+lr_5e4,1.7049,0.2345,9.5,lr_sweep
+freeze0,1.0163,0.2191,10.2,freeze_sweep
+freeze4,1.0,0.2345,9.7,freeze_sweep
+freeze6,1.0,0.2259,9.5,freeze_sweep
+freeze7,1.0,0.2174,9.4,freeze_sweep
+freeze8,1.0083,0.2442,9.3,freeze_sweep
+spec_fr0,1.0,0.2171,10.3,specaug
+spec_fr6,1.2025,0.2231,9.5,specaug
+fr6_s1200,1.0,0.2271,9.5,longer_training
+fr6_s1800,1.5727,0.2482,14.0,longer_training
+fr6_s2400,1.0,0.2214,18.5,longer_training

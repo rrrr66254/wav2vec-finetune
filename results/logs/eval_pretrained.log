@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading model from facebook/wav2vec2-base ...
+Loading weights:   0%|          | 0/211 [00:00<?, ?it/s]Loading weights: 100%|██████████| 211/211 [00:00<00:00, 43580.94it/s]
+[1mWav2Vec2ForCTC LOAD REPORT[0m from: facebook/wav2vec2-base
+Key                          | Status     | 
+-----------------------------+------------+-
+project_hid.bias             | UNEXPECTED | 
+project_hid.weight           | UNEXPECTED | 
+project_q.weight             | UNEXPECTED | 
+quantizer.weight_proj.weight | UNEXPECTED | 
+quantizer.weight_proj.bias   | UNEXPECTED | 
+project_q.bias               | UNEXPECTED | 
+quantizer.codevectors        | UNEXPECTED | 
+lm_head.weight               | MISSING    | 
+lm_head.bias                 | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+Loading test-clean ...
+  test-clean: 2495 utt
+Loading test-other ...
+  test-other: 2856 utt
+
+=== Full evaluation ===
+test-clean: 2495 utt  WER=1.0009
+test-other: 2856 utt  WER=1.0019

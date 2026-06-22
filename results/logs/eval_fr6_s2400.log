@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading model from C:\Users\USER\Desktop\고려대\음성\xai509_project\runs\saved_fr6_2400 ...
+Loading weights:   0%|          | 0/213 [00:00<?, ?it/s]Loading weights: 100%|██████████| 213/213 [00:00<00:00, 12387.50it/s]
+Loading test-clean ...
+  test-clean: 2495 utt
+Loading test-other ...
+  test-other: 2856 utt
+
+=== Full evaluation ===
+test-clean: 2495 utt  WER=0.2122
+test-other: 2856 utt  WER=0.2998

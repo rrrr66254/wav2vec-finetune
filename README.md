@@ -182,6 +182,24 @@ Outputs 7 PNG charts to `slides/`:
 
 ---
 
+## Experiment Results
+
+Pre-run results are included in `results/` for verification without re-running:
+
+```
+results/
+├── sweep_results.csv      # per-run baseline & final WER for all sweep experiments
+├── dual_eval_results.csv  # full test-clean / test-other WER for saved checkpoints
+└── logs/
+    ├── lr_1e4.log / lr_3e4.log / lr_5e4.log       # Method 1: LR sweep
+    ├── freeze0.log … freeze8.log                   # Method 2: freeze depth
+    ├── spec_fr0.log / spec_fr6.log                 # Method 3: SpecAugment
+    ├── fr6_s1200.log / fr6_s1800.log / fr6_s2400.log   # Method 4: duration
+    └── eval_pretrained.log / eval_fr6_s*.log       # full dual eval
+```
+
+---
+
 ## Key Findings
 
 | Method | Best config | WER (200-sample test-clean) |
