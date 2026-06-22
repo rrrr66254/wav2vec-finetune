@@ -4,6 +4,56 @@ Fine-tuning **facebook/wav2vec2-base** (CTC) on a 1-hour Libri-Light WebDataset 
 
 ## Results
 
+All runs evaluated on the professor's WebDataset (1h training / test-clean / test-other).  
+Phases 1–3 use a 200-sample cap on test-clean for fast periodic eval; Phase 4 uses the full test set.
+
+### Baseline
+
+| Model | test-clean WER | test-other WER |
+|-------|---------------|---------------|
+| Pretrained (no fine-tune) | 1.0009 | 1.0019 |
+
+### Method 1 — Learning Rate Sweep
+*(freeze6, 1200 steps, 200-sample eval)*
+
+| Learning Rate | WER |
+|---------------|-----|
+| 1e-4 | 0.2822 |
+| **3e-4** | **0.2042** |
+| 5e-4 | 0.2345 |
+
+### Method 2 — Transformer Layer Freezing
+*(lr=3e-4, 1200 steps, 200-sample eval; feature encoder CNN always frozen)*
+
+| Frozen Layers | Trainable Params | WER |
+|---------------|-----------------|-----|
+| 0 (baseline) | ~67% | 0.2191 |
+| 4 | ~58% | 0.2345 |
+| 6 | ~50% | 0.2259 |
+| **7** | **~48%** | **0.2174** |
+| 8 | ~42% | 0.2442 |
+
+### Method 3 — SpecAugment
+*(lr=3e-4, 1200 steps, mask\_time\_prob=0.05, mask\_feature\_prob=0.006, 200-sample eval)*
+
+| Config | WER | vs baseline |
+|--------|-----|------------|
+| freeze0 (baseline) | 0.2191 | — |
+| freeze0 + SpecAug | 0.2171 | −0.9% |
+| freeze6 (baseline) | 0.2259 | — |
+| freeze6 + SpecAug | 0.2231 | −1.2% |
+
+### Method 4 — Training Duration
+*(freeze6, lr=3e-4, full test set eval)*
+
+| Steps | test-clean WER | test-other WER |
+|-------|---------------|---------------|
+| 1200 | 0.2202 | 0.3034 |
+| 1800 | 0.2335 | 0.3127 |
+| **2400** | **0.2122** | **0.2998** |
+
+### Final Comparison
+
 | Model | test-clean WER | test-other WER |
 |-------|---------------|---------------|
 | Pretrained (no fine-tune) | 1.0009 | 1.0019 |
